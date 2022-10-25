@@ -1,6 +1,8 @@
 #ifndef __PARSER_AT__
 #define __PARSER_AT__
 
+#include <string.h>
+#include <stdio.h>
 #include <stdint.h>
 
 #define AT_COMMAND_MAX_LINES 100
@@ -38,12 +40,13 @@ typedef enum
 	_13_ERROR_O = 13,
 	_14_ERROR_THIRD_R = 14,
 	_15_ERROR_CR = 15,
-	_16_ERROR_LF = 16, //MAYBE NOT NEEDED
+	// 16 is a final state in diagram
 	_17_OK_K = 17,
 	_18_OK_CR = 18,
-	_19_OK_LF = 19 // MAYBE NOT NEEDED
+	// 19 is a final state in diagram
 } State_Machine;
 
 STATE_MACHINE_RETURN_VALUE data_parser(uint8_t currentCharacter);
+void print_data_structure(AT_COMMAND_DATA data);
 
 #endif
